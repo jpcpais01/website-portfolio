@@ -1,0 +1,16 @@
+{
+  "name": "João Pais — Portfolio",
+  "short_name": "João Pais",
+  "description": "Personal portfolio of João Pais, showcasing high-performance digital products and creative development.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#080808",
+  "theme_color": "#080808",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}
