@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" class="lenis-smooth bg-[#080808]">
+<html lang="pt" class="lenis-smooth bg-[#080808]">
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -45,66 +45,59 @@
         <a href="#" class="font-mono text-xs uppercase tracking-[0.2em] font-bold hover:text-accent transition-colors duration-300" data-magnetic>
           João Pais
         </a>
-        <div class="flex items-center gap-6">
+        <div class="flex items-center gap-4 md:gap-6">
           <div class="flex items-center gap-2">
             <span class="relative flex h-2 w-2">
               <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent opacity-75"></span>
               <span class="relative inline-flex rounded-full h-2 w-2 bg-accent"></span>
             </span>
-            <span class="font-mono text-[10px] uppercase tracking-wider text-zinc-400 hidden sm:inline">
-              Available for select freelance projects
+            <span id="header-status" data-i18n="status" class="font-mono text-[10px] uppercase tracking-wider text-zinc-400 hidden sm:inline">
+              Disponível para projetos selecionados
             </span>
-            <span class="font-mono text-[10px] uppercase tracking-wider text-zinc-400 inline sm:hidden">
-              Available
+            <span id="header-status-mobile" data-i18n="status_mobile" class="font-mono text-[10px] uppercase tracking-wider text-zinc-400 inline sm:hidden">
+              Disponível
             </span>
           </div>
           <div class="h-4 w-[1px] bg-zinc-800"></div>
-          <span class="font-mono text-[10px] uppercase tracking-wider text-zinc-500">
-            Based in Portugal
+          <span data-i18n="location" class="font-mono text-[10px] uppercase tracking-wider text-zinc-500 hidden md:inline">
+            Sediado em Portugal
           </span>
+          <div class="hidden md:inline h-4 w-[1px] bg-zinc-800"></div>
+          
+          <!-- Language Switcher -->
+          <div class="flex items-center gap-1.5 font-mono text-[10px] uppercase tracking-wider">
+            <button id="lang-pt-btn" class="text-accent font-bold hover:text-accent transition-colors duration-300 focus:outline-none cursor-pointer" data-magnetic>PT</button>
+            <span class="text-zinc-700">/</span>
+            <button id="lang-en-btn" class="text-zinc-500 hover:text-accent transition-colors duration-300 focus:outline-none cursor-pointer" data-magnetic>EN</button>
+          </div>
         </div>
       </header>
 
       <main class="flex-grow">
         
         <!-- HERO SECTION -->
-        <section id="hero" class="py-24 md:py-36 border-b border-zinc-900/50 flex flex-col justify-center min-h-[75vh] relative">
+        <section id="hero" class="py-20 md:py-32 border-b border-zinc-900/50 flex flex-col justify-center min-h-[75vh] relative">
           <!-- Editorial Label -->
-          <div class="font-mono text-xs text-accent uppercase tracking-widest mb-8">
-            [01/03] Introduction
+          <div data-i18n="intro_label" class="font-mono text-xs text-accent uppercase tracking-widest mb-8">
+            [01/03] Introdução
           </div>
 
-          <!-- Hero Headline -->
-          <h1 class="text-5xl md:text-7xl lg:text-[6.5vw] font-display font-black leading-[1.05] tracking-tight uppercase mb-10 select-none">
-            <div class="overflow-hidden">
-              <span class="inline-block translate-y-full reveal-text">Crafting</span>
-            </div>
-            <div class="overflow-hidden">
-              <span class="inline-block translate-y-full reveal-text font-serif italic font-light normal-case tracking-normal text-zinc-300">high-performance</span>
-            </div>
-            <div class="overflow-hidden">
-              <span class="inline-block translate-y-full reveal-text">digital products</span>
-            </div>
-            <div class="overflow-hidden flex flex-wrap items-baseline gap-x-4">
-              <span class="inline-block translate-y-full reveal-text">with</span>
-              <span class="inline-block translate-y-full reveal-text font-serif italic font-light normal-case tracking-normal text-zinc-300">uncompromising</span>
-            </div>
-            <div class="overflow-hidden">
-              <span class="inline-block translate-y-full reveal-text">aesthetics.</span>
-            </div>
+          <!-- Hero Headline (Dynamically Split via JavaScript to avoid layout overflow) -->
+          <h1 id="hero-title" data-i18n-html="hero_title" class="text-4xl sm:text-6xl md:text-7xl lg:text-[6.2vw] font-display font-black leading-[1.1] tracking-tight uppercase mb-10 select-none">
+            Criando *produtos digitais* de *alto desempenho* com estética *intransigente*.
           </h1>
 
           <!-- Value Prop / Punchline -->
           <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-end">
-            <div class="lg:col-span-6">
-              <p class="text-lg md:text-xl text-zinc-400 font-sans font-light leading-relaxed">
-                I am João Pais — a developer and interactive designer based in Portugal, specialized in bridging the gap between rigorous technical performance and high-fashion visual systems.
+            <div class="lg:col-span-7">
+              <p id="hero-value-prop" data-i18n="value_prop" class="text-base sm:text-lg md:text-xl text-zinc-400 font-sans font-light leading-relaxed">
+                Sou o João Pais — um programador e designer interativo sediado em Portugal, especializado em unir o desempenho técnico rigoroso a sistemas visuais de alta-costura.
               </p>
             </div>
-            <div class="lg:col-span-6 flex justify-start lg:justify-end">
+            <div class="lg:col-span-5 flex justify-start lg:justify-end">
               <!-- Scroll Guide -->
               <a href="#work" class="group flex items-center gap-4 text-xs font-mono uppercase tracking-widest text-zinc-500 hover:text-accent transition-colors duration-300" data-magnetic>
-                <span>Scroll to see work</span>
+                <span data-i18n="scroll_guide">Deslize para ver o trabalho</span>
                 <span class="flex items-center justify-center w-8 h-8 rounded-full border border-zinc-800 group-hover:border-accent transition-colors duration-500">
                   <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4 transform group-hover:translate-y-1 transition-transform duration-300">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
@@ -116,18 +109,18 @@
         </section>
 
         <!-- PORTFOLIO SECTION -->
-        <section id="work" class="py-24 border-b border-zinc-900/50">
+        <section id="work" class="py-20 md:py-24 border-b border-zinc-900/50">
           <div class="flex flex-col md:flex-row md:items-end justify-between mb-16">
             <div>
-              <div class="font-mono text-xs text-accent uppercase tracking-widest mb-4">
-                [02/03] Selected Work
+              <div data-i18n="work_label" class="font-mono text-xs text-accent uppercase tracking-widest mb-4">
+                [02/03] Trabalho Selecionado
               </div>
-              <h2 class="text-4xl md:text-5xl font-display font-extrabold uppercase tracking-tight">
-                Proof of Craft
+              <h2 data-i18n="work_title" class="text-3xl md:text-5xl font-display font-extrabold uppercase tracking-tight">
+                Prova de Ofício
               </h2>
             </div>
-            <p class="text-zinc-500 font-mono text-xs mt-4 md:mt-0">
-              CLICK TO VIEW LIVE PRODUCT // 2024 - 2026
+            <p data-i18n="work_subtitle" class="text-zinc-500 font-mono text-[10px] mt-4 md:mt-0 uppercase tracking-widest">
+              CLIQUE PARA VER O PRODUTO REAL // 2024 - 2026
             </p>
           </div>
 
@@ -138,41 +131,49 @@
             <a href="https://picanha-brasa.vercel.app/" target="_blank" class="project-card group relative block border border-zinc-900/80 bg-zinc-950/20 hover:border-zinc-800 transition-all duration-500 overflow-hidden flex flex-col justify-between" data-magnetic-card>
               <!-- Card visual -->
               <div class="relative w-full aspect-[16/10] overflow-hidden border-b border-zinc-900/80 bg-[#121212]">
-                <!-- Noise element -->
                 <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent z-10 opacity-60"></div>
-                <img src="/projects/picanha_brasa.png" alt="Picanha & Brasa Steakhouse" class="w-full h-full object-cover transition-transform duration-[1.2s] cubic-bezier(0.16, 1, 0.3, 1) group-hover:scale-105" loading="lazy">
                 
-                <!-- Graphic Overlay for visual richness -->
-                <div class="absolute top-4 left-4 z-20 font-mono text-[9px] px-2.5 py-1 bg-black/60 border border-zinc-800/80 text-zinc-400 uppercase tracking-widest backdrop-blur-md">
-                  CONCEPT // 01
+                <!-- Fallback premium style (always renders, hidden by image load if image exists) -->
+                <div class="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-[#1c1c1e] to-black opacity-30"></div>
+                
+                <!-- Live uploaded image preview with cross-fade logic -->
+                <img src="/projects/picanha_brasa.png" 
+                     alt="Picanha & Brasa" 
+                     class="w-full h-full object-cover absolute inset-0 z-20 opacity-0 transition-opacity duration-700 ease-out group-hover:scale-105 transition-transform duration-[1.2s] cubic-bezier(0.16, 1, 0.3, 1)" 
+                     onload="this.classList.remove('opacity-0'); this.classList.add('opacity-100')"
+                     onerror="this.style.display='none'">
+                
+                <!-- Overlay Label -->
+                <div class="absolute top-4 left-4 z-30 font-mono text-[9px] px-2.5 py-1 bg-black/60 border border-zinc-800/80 text-zinc-400 uppercase tracking-widest backdrop-blur-md">
+                  <span data-i18n="concept">CONCEITO</span> // 01
                 </div>
               </div>
               <!-- Card info -->
               <div class="p-6 md:p-8 bg-zinc-950/45 backdrop-blur-sm flex flex-col justify-between flex-grow">
                 <div>
                   <div class="flex items-center justify-between mb-2">
-                    <h3 class="text-2xl font-display font-extrabold uppercase tracking-tight group-hover:text-accent transition-colors duration-300">
+                    <h3 class="text-xl md:text-2xl font-display font-extrabold uppercase tracking-tight group-hover:text-accent transition-colors duration-300">
                       Picanha & Brasa
                     </h3>
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="w-5 h-5 opacity-0 -translate-x-2 -translate-y-2 group-hover:opacity-100 group-hover:translate-x-0 group-hover:translate-y-0 transition-all duration-300 text-accent">
                       <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" />
                     </svg>
                   </div>
-                  <p class="text-zinc-400 text-sm font-light mb-6">
-                    A premium digital brand experience and online reservations portal for an elite steakhouse, emphasizing high-contrast photography and typography.
+                  <p data-i18n="picanha_desc" class="text-zinc-400 text-sm font-light mb-6">
+                    Uma experiência digital de marca premium e portal de reservas online para uma steakhouse de elite, com ênfase em fotografia e tipografia de alto contraste.
                   </p>
                 </div>
                 <div class="border-t border-zinc-900/60 pt-4 mt-auto flex flex-col gap-2">
                   <div class="flex justify-between text-[10px] font-mono uppercase tracking-wider text-zinc-500">
-                    <span>Role</span>
-                    <span class="text-zinc-300">Creative Dev / Art Direction</span>
+                    <span data-i18n="meta_role">Função</span>
+                    <span data-i18n="picanha_role" class="text-zinc-300 text-right">Dev Criativo / Direção de Arte</span>
                   </div>
                   <div class="flex justify-between text-[10px] font-mono uppercase tracking-wider text-zinc-500">
-                    <span>Stack</span>
-                    <span class="text-zinc-300">Next.js, TailwindCSS, Framer Motion</span>
+                    <span data-i18n="meta_stack">Tecnologias</span>
+                    <span class="text-zinc-300 text-right">Next.js, TailwindCSS, Framer Motion</span>
                   </div>
                   <div class="flex justify-between text-[10px] font-mono uppercase tracking-wider text-zinc-500">
-                    <span>Year</span>
+                    <span data-i18n="meta_year">Ano</span>
                     <span class="text-zinc-300">2026</span>
                   </div>
                 </div>
@@ -183,7 +184,6 @@
             <a href="https://musicalia-gold.vercel.app/" target="_blank" class="project-card group relative block border border-zinc-900/80 bg-zinc-950/20 hover:border-zinc-800 transition-all duration-500 overflow-hidden flex flex-col justify-between" data-magnetic-card>
               <!-- Card visual -->
               <div class="relative w-full aspect-[16/10] overflow-hidden border-b border-zinc-900/80 bg-[#0d0d0d] flex items-center justify-center">
-                <!-- Soundwave Vector Graphic / Gradient Overlay -->
                 <div class="absolute inset-0 bg-gradient-to-br from-black via-zinc-950 to-zinc-900/50"></div>
                 <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent z-10 opacity-70"></div>
                 
@@ -196,37 +196,44 @@
                   <div class="w-1.5 bg-zinc-800 h-24 rounded-full transition-all duration-500 group-hover:h-36 group-hover:bg-[#00f0ff] delay-200"></div>
                 </div>
 
-                <!-- Custom Overlay Label -->
-                <div class="absolute top-4 left-4 z-20 font-mono text-[9px] px-2.5 py-1 bg-black/60 border border-zinc-800/80 text-zinc-400 uppercase tracking-widest backdrop-blur-md">
-                  CULTURE & E-COM // 02
+                <!-- Live uploaded image preview with cross-fade logic -->
+                <img src="/projects/musicalia.png" 
+                     alt="Musicalia" 
+                     class="w-full h-full object-cover absolute inset-0 z-20 opacity-0 transition-opacity duration-700 ease-out group-hover:scale-105 transition-transform duration-[1.2s] cubic-bezier(0.16, 1, 0.3, 1)" 
+                     onload="this.classList.remove('opacity-0'); this.classList.add('opacity-100')"
+                     onerror="this.style.display='none'">
+
+                <!-- Overlay Label -->
+                <div class="absolute top-4 left-4 z-30 font-mono text-[9px] px-2.5 py-1 bg-black/60 border border-zinc-800/80 text-zinc-400 uppercase tracking-widest backdrop-blur-md">
+                  <span data-i18n="culture_ecom">CULTURA & E-COM</span> // 02
                 </div>
               </div>
               <!-- Card info -->
               <div class="p-6 md:p-8 bg-zinc-950/45 backdrop-blur-sm flex flex-col justify-between flex-grow">
                 <div>
                   <div class="flex items-center justify-between mb-2">
-                    <h3 class="text-2xl font-display font-extrabold uppercase tracking-tight group-hover:text-accent transition-colors duration-300">
+                    <h3 class="text-xl md:text-2xl font-display font-extrabold uppercase tracking-tight group-hover:text-accent transition-colors duration-300">
                       Musicalia
                     </h3>
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="w-5 h-5 opacity-0 -translate-x-2 -translate-y-2 group-hover:opacity-100 group-hover:translate-x-0 group-hover:translate-y-0 transition-all duration-300 text-accent">
                       <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" />
                     </svg>
                   </div>
-                  <p class="text-zinc-400 text-sm font-light mb-6">
-                    A conceptual hub merging design culture with e-commerce, offering high-fidelity audio equipment cataloging and an immersive, vinyl-inspired layout.
+                  <p data-i18n="musicalia_desc" class="text-zinc-400 text-sm font-light mb-6">
+                    Um hub conceptual que funde a cultura de design com comércio eletrónico, oferecendo um catálogo de equipamentos de áudio de alta fidelidade e um layout imersivo inspirado em vinil.
                   </p>
                 </div>
                 <div class="border-t border-zinc-900/60 pt-4 mt-auto flex flex-col gap-2">
                   <div class="flex justify-between text-[10px] font-mono uppercase tracking-wider text-zinc-500">
-                    <span>Role</span>
-                    <span class="text-zinc-300">Lead Frontend Engineer</span>
+                    <span data-i18n="meta_role">Função</span>
+                    <span data-i18n="musicalia_role" class="text-zinc-300 text-right">Engenheiro de Frontend Principal</span>
                   </div>
                   <div class="flex justify-between text-[10px] font-mono uppercase tracking-wider text-zinc-500">
-                    <span>Stack</span>
-                    <span class="text-zinc-300">React, TailwindCSS, GSAP ScrollTrigger</span>
+                    <span data-i18n="meta_stack">Tecnologias</span>
+                    <span class="text-zinc-300 text-right">React, TailwindCSS, GSAP ScrollTrigger</span>
                   </div>
                   <div class="flex justify-between text-[10px] font-mono uppercase tracking-wider text-zinc-500">
-                    <span>Year</span>
+                    <span data-i18n="meta_year">Ano</span>
                     <span class="text-zinc-300">2025</span>
                   </div>
                 </div>
@@ -237,50 +244,56 @@
             <a href="https://acainapraia.vercel.app/" target="_blank" class="project-card group relative block border border-zinc-900/80 bg-zinc-950/20 hover:border-zinc-800 transition-all duration-500 overflow-hidden flex flex-col justify-between md:col-span-2" data-magnetic-card>
               <!-- Card visual -->
               <div class="relative w-full aspect-[16/8] overflow-hidden border-b border-zinc-900/80 bg-[#12081c] flex items-center justify-center">
-                <!-- Tropical / Modernist Graphic Overlay -->
                 <div class="absolute inset-0 bg-gradient-to-br from-[#12081c] via-[#2c0e3a] to-[#4c164a]/20"></div>
                 <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent z-10 opacity-80"></div>
                 
                 <!-- Floating Graphic Circles & Geometric Lines -->
                 <div class="relative z-10 w-full max-w-lg px-8 text-center flex flex-col items-center gap-4">
                   <div class="w-20 h-20 rounded-full bg-gradient-to-tr from-purple-800 to-yellow-500/80 opacity-30 blur-xl absolute -top-8 animate-pulse"></div>
-                  <div class="font-serif italic text-3xl md:text-5xl text-yellow-300 font-light tracking-wide select-none transition-transform duration-700 group-hover:scale-105 group-hover:rotate-1">
+                  <div class="font-serif italic text-2xl md:text-5xl text-yellow-300 font-light tracking-wide select-none transition-transform duration-700 group-hover:scale-105 group-hover:rotate-1">
                     Fresh, Pure & Tropical
                   </div>
                   <div class="h-[1px] w-24 bg-yellow-500/50"></div>
                 </div>
 
-                <!-- Custom Overlay Label -->
-                <div class="absolute top-4 left-4 z-20 font-mono text-[9px] px-2.5 py-1 bg-black/60 border border-zinc-800/80 text-zinc-400 uppercase tracking-widest backdrop-blur-md">
-                  BRAND EXPERIENCE // 03
+                <!-- Live uploaded image preview with cross-fade logic -->
+                <img src="/projects/acai_na_praia.png" 
+                     alt="Açaí na Praia" 
+                     class="w-full h-full object-cover absolute inset-0 z-20 opacity-0 transition-opacity duration-700 ease-out group-hover:scale-105 transition-transform duration-[1.2s] cubic-bezier(0.16, 1, 0.3, 1)" 
+                     onload="this.classList.remove('opacity-0'); this.classList.add('opacity-100')"
+                     onerror="this.style.display='none'">
+
+                <!-- Overlay Label -->
+                <div class="absolute top-4 left-4 z-30 font-mono text-[9px] px-2.5 py-1 bg-black/60 border border-zinc-800/80 text-zinc-400 uppercase tracking-widest backdrop-blur-md">
+                  <span data-i18n="brand_exp">EXPERIÊNCIA DE MARCA</span> // 03
                 </div>
               </div>
               <!-- Card info -->
               <div class="p-6 md:p-8 bg-zinc-950/45 backdrop-blur-sm flex flex-col justify-between flex-grow">
                 <div>
                   <div class="flex items-center justify-between mb-2">
-                    <h3 class="text-2xl font-display font-extrabold uppercase tracking-tight group-hover:text-accent transition-colors duration-300">
+                    <h3 class="text-xl md:text-2xl font-display font-extrabold uppercase tracking-tight group-hover:text-accent transition-colors duration-300">
                       Açaí na Praia
                     </h3>
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="w-5 h-5 opacity-0 -translate-x-2 -translate-y-2 group-hover:opacity-100 group-hover:translate-x-0 group-hover:translate-y-0 transition-all duration-300 text-accent">
                       <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" />
                     </svg>
                   </div>
-                  <p class="text-zinc-400 text-sm font-light mb-6">
-                    A vibrant, sun-drenched beachside brand web application featuring rapid page loads, slick fruit animations, and a seamless visual menu showcase.
+                  <p data-i18n="acai_desc" class="text-zinc-400 text-sm font-light mb-6">
+                    Uma aplicação web de marca vibrante à beira-mar, com carregamento rápido de páginas, animações dinâmicas de frutas e uma montra de menu visual e intuitiva.
                   </p>
                 </div>
                 <div class="border-t border-zinc-900/60 pt-4 mt-auto flex flex-col sm:flex-row sm:justify-between gap-2 sm:gap-6">
                   <div class="flex justify-between flex-grow text-[10px] font-mono uppercase tracking-wider text-zinc-500">
-                    <span>Role</span>
-                    <span class="text-zinc-300">Lead Creative Architect</span>
+                    <span data-i18n="meta_role">Função</span>
+                    <span data-i18n="acai_role" class="text-zinc-300 text-right">Arquiteto Criativo Principal</span>
                   </div>
                   <div class="flex justify-between flex-grow text-[10px] font-mono uppercase tracking-wider text-zinc-500">
-                    <span>Stack</span>
-                    <span class="text-zinc-300">Vite, CSS Modules, GSAP Core</span>
+                    <span data-i18n="meta_stack">Tecnologias</span>
+                    <span class="text-zinc-300 text-right">Vite, CSS Modules, GSAP Core</span>
                   </div>
                   <div class="flex justify-between flex-grow text-[10px] font-mono uppercase tracking-wider text-zinc-500">
-                    <span>Year</span>
+                    <span data-i18n="meta_year">Ano</span>
                     <span class="text-zinc-300">2025</span>
                   </div>
                 </div>
@@ -291,51 +304,57 @@
             <a href="https://arcane-navy.vercel.app/" target="_blank" class="project-card group relative block border border-zinc-900/80 bg-zinc-950/20 hover:border-zinc-800 transition-all duration-500 overflow-hidden flex flex-col justify-between" data-magnetic-card>
               <!-- Card visual -->
               <div class="relative w-full aspect-[16/10] overflow-hidden border-b border-zinc-900/80 bg-[#090b11] flex items-center justify-center">
-                <!-- Tech / Cyberspace Grid Design -->
                 <div class="absolute inset-0 bg-gradient-to-br from-[#090b11] via-[#0f1424] to-black"></div>
                 <div class="absolute inset-0 bg-[linear-gradient(to_right,#1f2937_1px,transparent_1px),linear-gradient(to_bottom,#1f2937_1px,transparent_1px)] bg-[size:24px_24px] opacity-20"></div>
                 <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent z-10 opacity-70"></div>
                 
                 <!-- Glowing geometric shapes -->
                 <div class="relative z-10 flex flex-col items-center">
-                  <div class="w-32 h-32 rounded-lg border border-[#00f0ff]/30 flex items-center justify-center rotate-45 group-hover:rotate-[135deg] group-hover:border-[#00f0ff] transition-all duration-1000 ease-out bg-[#0f1424]/40 backdrop-blur-md">
-                    <div class="-rotate-45 group-hover:rotate-[-135deg] transition-all duration-1000 ease-out font-mono text-xs text-[#00f0ff] tracking-[0.3em] font-bold">
+                  <div class="w-28 h-28 md:w-32 md:h-32 rounded-lg border border-[#00f0ff]/30 flex items-center justify-center rotate-45 group-hover:rotate-[135deg] group-hover:border-[#00f0ff] transition-all duration-1000 ease-out bg-[#0f1424]/40 backdrop-blur-md">
+                    <div class="-rotate-45 group-hover:rotate-[-135deg] transition-all duration-1000 ease-out font-mono text-[10px] md:text-xs text-[#00f0ff] tracking-[0.3em] font-bold">
                       ARCANE
                     </div>
                   </div>
                 </div>
 
-                <!-- Custom Overlay Label -->
-                <div class="absolute top-4 left-4 z-20 font-mono text-[9px] px-2.5 py-1 bg-black/60 border border-zinc-800/80 text-zinc-400 uppercase tracking-widest backdrop-blur-md">
-                  TECH PLATFORM // 04
+                <!-- Live uploaded image preview with cross-fade logic -->
+                <img src="/projects/arcane.png" 
+                     alt="Arcane" 
+                     class="w-full h-full object-cover absolute inset-0 z-20 opacity-0 transition-opacity duration-700 ease-out group-hover:scale-105 transition-transform duration-[1.2s] cubic-bezier(0.16, 1, 0.3, 1)" 
+                     onload="this.classList.remove('opacity-0'); this.classList.add('opacity-100')"
+                     onerror="this.style.display='none'">
+
+                <!-- Overlay Label -->
+                <div class="absolute top-4 left-4 z-30 font-mono text-[9px] px-2.5 py-1 bg-black/60 border border-zinc-800/80 text-zinc-400 uppercase tracking-widest backdrop-blur-md">
+                  <span data-i18n="tech_platform">PLATAFORMA TECNOLÓGICA</span> // 04
                 </div>
               </div>
               <!-- Card info -->
               <div class="p-6 md:p-8 bg-zinc-950/45 backdrop-blur-sm flex flex-col justify-between flex-grow">
                 <div>
                   <div class="flex items-center justify-between mb-2">
-                    <h3 class="text-2xl font-display font-extrabold uppercase tracking-tight group-hover:text-accent transition-colors duration-300">
+                    <h3 class="text-xl md:text-2xl font-display font-extrabold uppercase tracking-tight group-hover:text-accent transition-colors duration-300">
                       Arcane
                     </h3>
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="w-5 h-5 opacity-0 -translate-x-2 -translate-y-2 group-hover:opacity-100 group-hover:translate-x-0 group-hover:translate-y-0 transition-all duration-300 text-accent">
                       <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" />
                     </svg>
                   </div>
-                  <p class="text-zinc-400 text-sm font-light mb-6">
-                    A hyper-minimalist SaaS portal with high-end dark mode aesthetics, secure token exchanges, and extremely clean layout logic.
+                  <p data-i18n="arcane_desc" class="text-zinc-400 text-sm font-light mb-6">
+                    Um portal SaaS hiper-minimalista com estética premium de modo escuro, trocas seguras de tokens e uma lógica de layout extremamente limpa.
                   </p>
                 </div>
                 <div class="border-t border-zinc-900/60 pt-4 mt-auto flex flex-col gap-2">
                   <div class="flex justify-between text-[10px] font-mono uppercase tracking-wider text-zinc-500">
-                    <span>Role</span>
-                    <span class="text-zinc-300">Full-Stack Creative Developer</span>
+                    <span data-i18n="meta_role">Função</span>
+                    <span data-i18n="arcane_role" class="text-zinc-300 text-right">Programador Criativo Full-Stack</span>
                   </div>
                   <div class="flex justify-between text-[10px] font-mono uppercase tracking-wider text-zinc-500">
-                    <span>Stack</span>
-                    <span class="text-zinc-300">Next.js, TailwindCSS, Radix UI</span>
+                    <span data-i18n="meta_stack">Tecnologias</span>
+                    <span class="text-zinc-300 text-right">Next.js, TailwindCSS, Radix UI</span>
                   </div>
                   <div class="flex justify-between text-[10px] font-mono uppercase tracking-wider text-zinc-500">
-                    <span>Year</span>
+                    <span data-i18n="meta_year">Ano</span>
                     <span class="text-zinc-300">2026</span>
                   </div>
                 </div>
@@ -346,12 +365,11 @@
             <a href="https://sabores-de-lisboa.vercel.app/" target="_blank" class="project-card group relative block border border-zinc-900/80 bg-zinc-950/20 hover:border-zinc-800 transition-all duration-500 overflow-hidden flex flex-col justify-between" data-magnetic-card>
               <!-- Card visual -->
               <div class="relative w-full aspect-[16/10] overflow-hidden border-b border-zinc-900/80 bg-[#080f1e] flex items-center justify-center">
-                <!-- Portuguese Ceramic Tiles (Azulejos) Vector Layout -->
                 <div class="absolute inset-0 bg-gradient-to-br from-[#0c1833] via-[#050b14] to-black"></div>
                 <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent z-10 opacity-70"></div>
                 
                 <!-- Tile patterns representation using SVGs/CSS -->
-                <div class="relative z-10 grid grid-cols-3 gap-3 w-48 opacity-40 group-hover:opacity-85 transition-opacity duration-700">
+                <div class="relative z-10 grid grid-cols-3 gap-3 w-48 opacity-45 group-hover:opacity-85 transition-opacity duration-700">
                   <div class="w-12 h-12 border border-blue-500/40 rounded-sm flex items-center justify-center text-blue-400 font-serif font-light text-xs rotate-12">✦</div>
                   <div class="w-12 h-12 border border-yellow-500/40 rounded-sm flex items-center justify-center text-yellow-400 font-serif font-light text-xs -rotate-12">✦</div>
                   <div class="w-12 h-12 border border-blue-500/40 rounded-sm flex items-center justify-center text-blue-400 font-serif font-light text-xs rotate-45">✦</div>
@@ -360,37 +378,44 @@
                   <div class="w-12 h-12 border border-yellow-500/40 rounded-sm flex items-center justify-center text-yellow-400 font-serif font-light text-xs rotate-12">✦</div>
                 </div>
 
-                <!-- Custom Overlay Label -->
-                <div class="absolute top-4 left-4 z-20 font-mono text-[9px] px-2.5 py-1 bg-black/60 border border-zinc-800/80 text-zinc-400 uppercase tracking-widest backdrop-blur-md">
-                  GASTRONOMY // 05
+                <!-- Live uploaded image preview with cross-fade logic -->
+                <img src="/projects/sabores_de_lisboa.png" 
+                     alt="Sabores de Lisboa" 
+                     class="w-full h-full object-cover absolute inset-0 z-20 opacity-0 transition-opacity duration-700 ease-out group-hover:scale-105 transition-transform duration-[1.2s] cubic-bezier(0.16, 1, 0.3, 1)" 
+                     onload="this.classList.remove('opacity-0'); this.classList.add('opacity-100')"
+                     onerror="this.style.display='none'">
+
+                <!-- Overlay Label -->
+                <div class="absolute top-4 left-4 z-30 font-mono text-[9px] px-2.5 py-1 bg-black/60 border border-zinc-800/80 text-zinc-400 uppercase tracking-widest backdrop-blur-md">
+                  <span data-i18n="gastronomy">GASTRONOMIA</span> // 05
                 </div>
               </div>
               <!-- Card info -->
               <div class="p-6 md:p-8 bg-zinc-950/45 backdrop-blur-sm flex flex-col justify-between flex-grow">
                 <div>
                   <div class="flex items-center justify-between mb-2">
-                    <h3 class="text-2xl font-display font-extrabold uppercase tracking-tight group-hover:text-accent transition-colors duration-300">
+                    <h3 class="text-xl md:text-2xl font-display font-extrabold uppercase tracking-tight group-hover:text-accent transition-colors duration-300">
                       Sabores de Lisboa
                     </h3>
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="w-5 h-5 opacity-0 -translate-x-2 -translate-y-2 group-hover:opacity-100 group-hover:translate-x-0 group-hover:translate-y-0 transition-all duration-300 text-accent">
                       <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" />
                     </svg>
                   </div>
-                  <p class="text-zinc-400 text-sm font-light mb-6">
-                    An elegant gastronomic showcase capturing the tradition, colors, and textures of Lisbon's culinary heritage under a clean editorial format.
+                  <p data-i18n="sabores_desc" class="text-zinc-400 text-sm font-light mb-6">
+                    Uma elegante montra gastronómica que capta a tradição, cores e texturas do património culinário de Lisboa num formato editorial limpo.
                   </p>
                 </div>
                 <div class="border-t border-zinc-900/60 pt-4 mt-auto flex flex-col gap-2">
                   <div class="flex justify-between text-[10px] font-mono uppercase tracking-wider text-zinc-500">
-                    <span>Role</span>
-                    <span class="text-zinc-300">Interactive Designer & Developer</span>
+                    <span data-i18n="meta_role">Função</span>
+                    <span data-i18n="sabores_role" class="text-zinc-300 text-right">Designer Interativo e Programador</span>
                   </div>
                   <div class="flex justify-between text-[10px] font-mono uppercase tracking-wider text-zinc-500">
-                    <span>Stack</span>
-                    <span class="text-zinc-300">Next.js, TailwindCSS, CSS Variables</span>
+                    <span data-i18n="meta_stack">Tecnologias</span>
+                    <span class="text-zinc-300 text-right">Next.js, TailwindCSS, CSS Variables</span>
                   </div>
                   <div class="flex justify-between text-[10px] font-mono uppercase tracking-wider text-zinc-500">
-                    <span>Year</span>
+                    <span data-i18n="meta_year">Ano</span>
                     <span class="text-zinc-300">2026</span>
                   </div>
                 </div>
@@ -401,40 +426,38 @@
         </section>
 
         <!-- CONNECT & FOOTER SECTION -->
-        <section id="connect" class="py-24 md:py-36 relative">
-          <div class="font-mono text-xs text-accent uppercase tracking-widest mb-8">
-            [03/03] Connect
+        <section id="connect" class="py-20 md:py-32 relative">
+          <div data-i18n="connect_label" class="font-mono text-xs text-accent uppercase tracking-widest mb-8">
+            [03/03] Contacto
           </div>
 
           <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
             <!-- Big Closing Hook -->
             <div class="lg:col-span-7">
-              <h2 class="text-4xl md:text-6xl lg:text-[5vw] font-display font-black leading-[1.1] uppercase tracking-tight mb-8">
-                Let's build<br>
-                something<br>
-                <span class="font-serif italic font-light normal-case text-zinc-300">exceptional.</span>
+              <h2 id="connect-title" data-i18n-html="connect_title" class="text-4xl md:text-6xl lg:text-[5vw] font-display font-black leading-[1.1] uppercase tracking-tight mb-8">
+                Vamos criar<br>algo<br><span class="font-serif italic font-light normal-case text-zinc-300">excecional.</span>
               </h2>
             </div>
             
             <!-- Connection details -->
             <div class="lg:col-span-5 w-full flex flex-col gap-10">
               <div class="flex flex-col gap-3">
-                <span class="font-mono text-xs uppercase tracking-widest text-zinc-500">Direct Contact</span>
-                <div class="flex items-center gap-4">
-                  <a href="mailto:hello@joaopais.dev" class="text-xl md:text-2xl font-mono hover:text-accent transition-colors duration-300 border-b border-zinc-800 hover:border-accent pb-1" data-magnetic>
+                <span data-i18n="direct_contact" class="font-mono text-xs uppercase tracking-widest text-zinc-500">Contacto Direto</span>
+                <div class="flex items-center gap-4 flex-wrap">
+                  <a href="mailto:hello@joaopais.dev" class="text-lg sm:text-xl md:text-2xl font-mono hover:text-accent transition-colors duration-300 border-b border-zinc-800 hover:border-accent pb-1" data-magnetic>
                     hello@joaopais.dev
                   </a>
-                  <button id="copy-email-btn" class="px-3 py-1.5 rounded-full border border-zinc-800 text-[10px] font-mono uppercase tracking-widest text-zinc-400 hover:border-accent hover:text-accent transition-colors duration-300" data-magnetic>
-                    Copy Email
+                  <button id="copy-email-btn" data-i18n="copy_email" class="px-3 py-1.5 rounded-full border border-zinc-800 text-[10px] font-mono uppercase tracking-widest text-zinc-400 hover:border-accent hover:text-accent transition-colors duration-300 cursor-pointer" data-magnetic>
+                    Copiar Email
                   </button>
                 </div>
-                <div id="copy-status" class="font-mono text-[10px] text-accent uppercase tracking-widest h-4 opacity-0 transition-opacity duration-300">
-                  Email copied to clipboard!
+                <div id="copy-status" data-i18n="copied" class="font-mono text-[10px] text-accent uppercase tracking-widest h-4 opacity-0 transition-opacity duration-300 select-none">
+                  Email copiado!
                 </div>
               </div>
 
               <div class="flex flex-col gap-4">
-                <span class="font-mono text-xs uppercase tracking-widest text-zinc-500">Social Connections</span>
+                <span data-i18n="socials" class="font-mono text-xs uppercase tracking-widest text-zinc-500">Redes Sociais</span>
                 <ul class="grid grid-cols-2 gap-4">
                   <li>
                     <a href="https://linkedin.com" target="_blank" class="group flex items-center justify-between p-4 border border-zinc-900 bg-zinc-950/20 hover:border-zinc-800 transition-colors duration-300" data-magnetic>
@@ -445,7 +468,7 @@
                     </a>
                   </li>
                   <li>
-                    <a href="https://github.com" target="_blank" class="group flex items-center justify-between p-4 border border-zinc-900 bg-zinc-950/20 hover:border-zinc-800 transition-colors duration-300" data-magnetic>
+                    <a href="https://github.com/jpcpais01" target="_blank" class="group flex items-center justify-between p-4 border border-zinc-900 bg-zinc-950/20 hover:border-zinc-800 transition-colors duration-300" data-magnetic>
                       <span class="font-mono text-xs uppercase tracking-wider text-zinc-400 group-hover:text-zinc-100 transition-colors duration-300">GitHub</span>
                       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4 text-zinc-500 group-hover:text-accent transition-colors duration-300">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" />
@@ -462,7 +485,7 @@
                   </li>
                   <li>
                     <a href="#" class="group flex items-center justify-between p-4 border border-zinc-900 bg-zinc-950/20 hover:border-zinc-800 transition-colors duration-300" data-magnetic>
-                      <span class="font-mono text-xs uppercase tracking-wider text-zinc-400 group-hover:text-zinc-100 transition-colors duration-300">Resume / CV</span>
+                      <span data-i18n="cv" class="font-mono text-xs uppercase tracking-wider text-zinc-400 group-hover:text-zinc-100 transition-colors duration-300">Currículo / CV</span>
                       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4 text-zinc-500 group-hover:text-accent transition-colors duration-300">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" />
                       </svg>
@@ -478,11 +501,11 @@
 
       <!-- FOOTER NOTE -->
       <footer class="py-8 border-t border-zinc-900/50 flex flex-col md:flex-row items-center justify-between gap-4">
-        <span class="font-mono text-[10px] uppercase tracking-wider text-zinc-500">
-          © 2026 João Pais — Built in Portugal // Working worldwide
+        <span id="footer-copy" data-i18n="footer_copy" class="font-mono text-[10px] uppercase tracking-wider text-zinc-500 text-center md:text-left">
+          © 2026 João Pais — Criado em Portugal // Disponível para todo o mundo
         </span>
-        <span class="font-mono text-[10px] uppercase tracking-wider text-zinc-600">
-          DESIGNED WITH PASSION, DELIVERED WITH CODE
+        <span data-i18n="footer_motto" class="font-mono text-[10px] uppercase tracking-wider text-zinc-600 text-center md:text-right">
+          DESENHADO COM PAIXÃO, ENTREGUE COM CÓDIGO
         </span>
       </footer>
 
