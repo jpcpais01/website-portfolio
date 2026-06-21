@@ -1,19 +1,34 @@
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600&family=Space+Mono:wght@400;700&family=Syne:wght@700;800&display=swap');
 @import "tailwindcss";
 
-@theme {
-  --font-display: "Syne", sans-serif;
-  --font-serif: "Cormorant Garamond", serif;
-  --font-sans: "Plus Jakarta Sans", sans-serif;
-  --font-mono: "Space Mono", monospace;
-
-  --color-accent: #00f0ff;
-  --color-accent-dim: rgba(0, 240, 255, 0.1);
-  --color-border-subtle: rgba(28, 28, 30, 0.6);
-  --color-text-muted: #8e8e93;
+/* ==========================================================================
+   Core Reset — Prevent all white flashes, overscroll bleeds, light-mode leaks
+   ========================================================================== */
+html {
+  background-color: #080808;
+  color-scheme: dark; /* Tell browser this is a dark page — kills white overscroll */
+  overscroll-behavior: none; /* Prevent iOS/Android rubber-band white flash */
+  -webkit-tap-highlight-color: transparent; /* Remove grey tap flash on mobile */
 }
 
-/* Custom Scrollbar */
+html, body {
+  background-color: #080808;
+  min-height: 100%;
+}
+
+body {
+  overscroll-behavior: none;
+}
+
+/* Prevent any element from horizontally overflowing */
+* {
+  box-sizing: border-box;
+  max-width: 100%;
+}
+
+/* ==========================================================================
+   Custom Scrollbar
+   ========================================================================== */
 ::-webkit-scrollbar {
   width: 6px;
 }
@@ -28,7 +43,24 @@
   background: #00f0ff;
 }
 
-/* Noise overlay */
+/* ==========================================================================
+   Theme Tokens
+   ========================================================================== */
+@theme {
+  --font-display: "Syne", sans-serif;
+  --font-serif: "Cormorant Garamond", serif;
+  --font-sans: "Plus Jakarta Sans", sans-serif;
+  --font-mono: "Space Mono", monospace;
+
+  --color-accent: #00f0ff;
+  --color-accent-dim: rgba(0, 240, 255, 0.1);
+  --color-border-subtle: rgba(28, 28, 30, 0.6);
+  --color-text-muted: #8e8e93;
+}
+
+/* ==========================================================================
+   Noise texture overlay (design detail, not a bug)
+   ========================================================================== */
 body::after {
   content: "";
   position: fixed;
@@ -38,12 +70,15 @@ body::after {
   height: 100vh;
   opacity: 0.035;
   pointer-events: none;
-  z-index: 9999;
+  z-index: 9000;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
 }
 
-/* Smooth Scrolling */
-html.lenis, html.lenis body {
+/* ==========================================================================
+   Lenis Smooth Scroll setup
+   ========================================================================== */
+html.lenis,
+html.lenis body {
   height: auto;
 }
 .lenis-smooth {
@@ -59,7 +94,38 @@ html.lenis, html.lenis body {
   pointer-events: none;
 }
 
-/* Custom Cursor Interaction */
+/* ==========================================================================
+   Hero / Connect Headline text-split container
+   ========================================================================== */
+#hero-title,
+#connect-title {
+  width: 100%;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  /* Prevent children from escaping */
+  overflow: hidden;
+}
+
+/* Each word wrapper — clipping container for reveal slide-up */
+.word-outer {
+  display: inline-block;
+  overflow: hidden;
+  margin-right: 0.2em;
+  /* Prevent the outer shell itself from clipping at odd angles */
+  vertical-align: bottom;
+  padding-bottom: 0.05em;
+}
+
+/* The inner span that slides up */
+.reveal-text {
+  display: inline-block;
+  transform: translateY(110%);
+  will-change: transform;
+}
+
+/* ==========================================================================
+   Custom Cursor
+   ========================================================================== */
 #custom-cursor.hovered {
   transform: translate(-50%, -50%) scale(1.8);
   background-color: rgba(0, 240, 255, 0.1);
@@ -69,19 +135,11 @@ html.lenis, html.lenis body {
   transform: translate(-50%, -50%) scale(2.2);
   background-color: rgba(255, 255, 255, 0.95);
   border-color: transparent;
-  mix-blend-difference: difference;
 }
 
-/* Text Reveal Animation */
-.reveal-text {
-  transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
-  transform: translateY(100%);
-}
-.reveal-text.active {
-  transform: translateY(0);
-}
-
-/* Project Card Hover Enhancements */
+/* ==========================================================================
+   Project Card Hover Enhancements
+   ========================================================================== */
 .project-card {
   perspective: 1000px;
 }
@@ -101,7 +159,9 @@ html.lenis, html.lenis body {
   opacity: 1;
 }
 
-/* Magnetic Transition smooth easing */
+/* ==========================================================================
+   Magnetic element easing
+   ========================================================================== */
 [data-magnetic] {
   transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
   will-change: transform;

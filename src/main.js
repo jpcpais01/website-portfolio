@@ -99,27 +99,35 @@ let currentLang = localStorage.getItem('portfolio-lang') || 'pt'
 function splitTextIntoSpans(element) {
   const text = element.innerText.trim()
   element.innerHTML = ''
-  
-  // Split text by space to capture words
+
+  // Make the heading a flex-wrap container so words tile onto new lines
+  // naturally on any screen width — no fixed line breaks needed
+  element.style.display = 'flex'
+  element.style.flexWrap = 'wrap'
+  element.style.alignItems = 'flex-end'
+  element.style.columnGap = '0.2em'
+  element.style.rowGap = '0'
+
   const words = text.split(/\s+/)
   words.forEach((word) => {
-    const wordSpan = document.createElement('span')
-    // block wrapping wrapper with overflow-hidden
-    wordSpan.className = 'inline-block overflow-hidden mr-[0.25em] pb-[0.05em] leading-tight align-bottom'
-    
-    const innerSpan = document.createElement('span')
-    innerSpan.className = 'inline-block translate-y-full reveal-text'
-    
-    // Check if the word is flagged as italic (e.g. *high-performance*)
+    // Outer clip container — hides the inner span while it's below the fold
+    const outer = document.createElement('span')
+    outer.className = 'word-outer'
+
+    const inner = document.createElement('span')
+    inner.className = 'reveal-text'
+
+    // Words wrapped in * are rendered in serif italic lowercase
     if (word.startsWith('*') && word.endsWith('*')) {
-      innerSpan.className += ' font-serif italic font-light normal-case tracking-normal text-zinc-300'
-      innerSpan.innerText = word.replace(/\*/g, '')
+      inner.classList.add('font-serif', 'italic', 'font-light', 'normal-case', 'tracking-normal', 'text-zinc-300')
+      inner.style.textTransform = 'none'
+      inner.innerText = word.slice(1, -1)
     } else {
-      innerSpan.innerText = word
+      inner.innerText = word
     }
-    
-    wordSpan.appendChild(innerSpan)
-    element.appendChild(wordSpan)
+
+    outer.appendChild(inner)
+    element.appendChild(outer)
   })
 }
 
@@ -131,24 +139,24 @@ function updateLanguage(lang) {
   localStorage.setItem('portfolio-lang', lang)
   document.documentElement.setAttribute('lang', lang)
 
-  // Update text values
+  // Update plain-text elements
   document.querySelectorAll('[data-i18n]').forEach((el) => {
     const key = el.getAttribute('data-i18n')
-    if (translations[lang][key]) {
+    if (translations[lang][key] !== undefined) {
       el.innerText = translations[lang][key]
     }
   })
 
-  // Update split text HTML headlines
+  // Update split-text headings
   document.querySelectorAll('[data-i18n-html]').forEach((el) => {
     const key = el.getAttribute('data-i18n-html')
-    if (translations[lang][key]) {
+    if (translations[lang][key] !== undefined) {
       el.innerText = translations[lang][key]
       splitTextIntoSpans(el)
     }
   })
 
-  // Update switcher styles
+  // Update language switcher button styles
   const btnPt = document.getElementById('lang-pt-btn')
   const btnEn = document.getElementById('lang-en-btn')
 
@@ -164,7 +172,7 @@ function updateLanguage(lang) {
     btnPt?.classList.add('text-zinc-500')
   }
 
-  // Trigger text animation reveal
+  // Trigger text animation reveal after DOM update
   animateTextReveals()
 }
 
@@ -172,17 +180,12 @@ function updateLanguage(lang) {
    GSAP Animated Reveals
    ========================================================================== */
 function animateTextReveals() {
-  // Clear any running reveal animation
   gsap.killTweensOf('.reveal-text')
-  
-  // Set reveal baseline
-  gsap.set('.reveal-text', { y: '108%' })
-  
-  // Slide up words smoothly
+  gsap.set('.reveal-text', { y: '110%' })
   gsap.to('.reveal-text', {
-    y: 0,
-    stagger: 0.04,
-    duration: 1.2,
+    y: '0%',
+    stagger: 0.045,
+    duration: 1.15,
     ease: 'power4.out',
     delay: 0.1,
   })
