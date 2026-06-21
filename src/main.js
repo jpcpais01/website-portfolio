@@ -46,6 +46,9 @@ const translations = {
     copied: "Email copiado!",
     socials: "Redes Sociais",
     cv: "Currículo / CV",
+    fresh_brand: "MARCA FRESCA",
+    frutas_desc: "Uma experiência digital orgânica para uma marca de frutas frescas do campo, com layouts limpos, paleta natural e uma presença de marca que transmite autenticidade e frescura.",
+    frutas_role: "Dev Criativo / Branding Digital",
     footer_copy: "© 2026 João Pais — Criado em Portugal // Disponível para todo o mundo",
     footer_motto: "DESENHADO COM PAIXÃO, ENTREGUE COM CÓDIGO"
   },
@@ -85,6 +88,9 @@ const translations = {
     copied: "Email copied to clipboard!",
     socials: "Social Connections",
     cv: "Resume / CV",
+    fresh_brand: "FRESH BRAND",
+    frutas_desc: "An organic digital experience for a fresh field-to-table fruit brand, with clean layouts, a natural color palette, and brand presence that communicates authenticity and freshness.",
+    frutas_role: "Creative Dev / Digital Branding",
     footer_copy: "© 2026 João Pais — Built in Portugal // Working worldwide",
     footer_motto: "DESIGNED WITH PASSION, DELIVERED WITH CODE"
   }
